@@ -19,24 +19,24 @@ public class Application {
 
         System.out.println(positiveNumbers);
 
-        Predicate<Integer> isPositiveThree = i -> i > 3;
+        Predicate<Integer> isPositiveLessthanThree = i -> i > 3;
 
         List<Integer> numbers2 = Arrays.asList(1, 2, 3, 4, 5, -1, -3, 1);
-        List<Integer> positiveThreeNumbers = new ArrayList<>();
+        List<Integer> positiveLessThanThreeNumbers = new ArrayList<>();
         for (Integer num : numbers2) {
-            if (isPositiveThree.test(num)) {
-                positiveThreeNumbers.add(num);
+            if (isPositiveLessthanThree.test(num)) {
+                positiveLessThanThreeNumbers.add(num);
             }
         }
 
-        System.out.println(positiveThreeNumbers);
+        System.out.println(positiveLessThanThreeNumbers);
 
-        System.out.println(filter(numbers, isPositive));
-        System.out.println(filter(numbers2, isPositiveThree));
+        System.out.println(filter(numbers, i -> i > 0));
+        System.out.println(filter(numbers2, i -> i > 3));
 
     }
 
-    public static <T> List<T> filter(List<T> inputs, Predicate predicate) {
+    public static <T> List<T> filter(List<T> inputs, Predicate<T> predicate) {
         List<T> returns = new ArrayList<>();
         for (T input : inputs) {
             if (predicate.test(input)) {
