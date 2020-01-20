@@ -1,13 +1,11 @@
 package functional;
 
-import java.util.function.Function;
+import java.util.function.Consumer;
 
 public class Application {
     public static void main(String[] args) {
-        Function<String, Integer> toInt = s -> Integer.parseInt(s);
+        Consumer<String> consumer = o -> System.out.println("hello" + o);
 
-        System.out.println(toInt.apply("12"));
-
-        Function<Integer, Integer> identity = t -> t;
+        consumer.accept("aa");
     }
 }
